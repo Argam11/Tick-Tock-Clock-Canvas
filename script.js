@@ -99,21 +99,19 @@ function play(el) {
 }
 
 function animate() {
-  resetCanvas();
-  funcList.forEach((f) => f());
-
   if (isPlay) {
+    resetCanvas();
+    funcList.forEach((f) => f());
+
     requestAnimationFrame(animate);
   }
 }
 
 function reset(el) {
   isPlay = false;
-  setTimeout(() => {
-    resetCanvas();
-    funcList = runFunc();
-    funcList.forEach((f) => f());
-  }, 20);
+  resetCanvas();
+  funcList = runFunc();
+  funcList.forEach((f) => f());
 
   el.previousElementSibling.innerText = "Play";
 }
